@@ -17,7 +17,7 @@ export default class Ping extends Observer {
 
 	_tick() {
 		ping.sys.probe(this.host, (isAlive) => {
-			this.callback.call(this, isAlive)
+			if (typeof isAlive === 'boolean') this.callback.call(this, isAlive)
 		})
 	}
 }

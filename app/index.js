@@ -26,8 +26,10 @@ class App {
 				}
 				if (!this.online && isAlive) {
 					let endTime = Date.now()
-					this.Save(startTime, endTime)
 					this.SendTweet(this.startTime, endTime)
+						.catch(error => console.error(error))
+					this.Save(this.startTime, endTime)
+						.catch(error => console.error(error))
 					this.SetOnline()
 				}
 			}, 1000)
@@ -37,13 +39,13 @@ class App {
 	SetOffline() {
 		this.online = false
 		this.startTime = Date.now()
-		console.log('offline')
+		this.log('offline')
 	}
 
 	SetOnline() {
 		this.online = true
 		this.startTime = undefined
-		console.log('online')
+		this.log('online')
 	}
 
 	SendTweet(startTime, endTime) {
@@ -65,21 +67,18 @@ class App {
 			status += `${hours} hours.`
 		} else if (minutes > 0) {
 			status += `${minutes} minutes.`
-		} else if (seconds > 1) {
+		} else if (seconds > 3) {
 			status += `${seconds} seconds.`
 		} else {
 			return
 		}
 
 		this.log(status)
-		twitter.Tweet(status)
-			.catch(error => console.error(error))
+		return twitter.Tweet(status)
 	}
 
 	Save(startTime, endTime) {
-		db.commands.logActions.create(startTime, endTime)
-			.then(result => console.log(result))
-			.catch(error => console.error(error))
+		return db.commands.logActions.create(startTime, endTime)
 	}
 
 	log(text) {
