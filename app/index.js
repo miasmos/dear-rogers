@@ -58,7 +58,7 @@ class App {
 		minutes = Math.abs(minutes - (days*24*60 + hours*60))
 		let seconds = parseInt(Math.abs(diff.asSeconds()))
 
-		let status = `Hey ${handle}, my internet has been offline for `;
+		let status = `Dear ${handle}, my internet has been offline for `;
 		if (days > 0) {
 			status += `${days} days.`
 		} else if (hours > 0) {
