@@ -1,0 +1,46 @@
+{
+  "name": "dear-rogers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "prod": "webpack -p --progress --config ./webpack.prod.config.js",
+    "watch": "webpack -w",
+    "start": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenpoole/Dear-Rogers.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephenpoole/Dear-Rogers/issues"
+  },
+  "homepage": "https://github.com/stephenpoole/Dear-Rogers#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "moment": "^2.18.1",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
+    "ping": "^0.2.2",
+    "sequelize": "^4.2.1",
+    "tedious": "^2.0.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "colors": "^1.1.2",
+    "html-webpack-plugin": "^2.22.0",
+    "json-loader": "^0.5.4",
+    "strip-loader": "^0.1.2",
+    "webpack": "^1.13.2",
+    "webpack-node-externals": "^1.5.4"
+  }
+}
